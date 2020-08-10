@@ -73,7 +73,7 @@ const generateColumns = (onClickDelete: any, onClickShow: any) => [
         type="button"
         className="button"
         onClick={() => {
-          onClickDelete(cell.row.index, cell.value);
+          onClickDelete(cell.row.index);
         }}
       >
         Delete
@@ -82,16 +82,9 @@ const generateColumns = (onClickDelete: any, onClickShow: any) => [
   },
 ];
 
-const updateDataTable = (data: IData[], index: number, id: number): IData[] => {
+const updateDataTable = (data: IData[], index: number): IData[] => {
   if (!data.length) return [];
-  const deleteItem = data.splice(index, 1);
-
-  if (deleteItem[0].id !== id) {
-    const newIndex = data.findIndex((item: any) => item.id === id);
-    if (newIndex > -1) {
-      data.splice(newIndex, 1);
-    }
-  }
+  data.splice(index, 1);
 
   return [...data];
 };

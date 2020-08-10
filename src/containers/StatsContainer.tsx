@@ -6,7 +6,7 @@ import StatsTable from '../components/StatsTable';
 import Modal from '../components/Modal';
 import { generateColumns, updateDataTable } from '../helpers';
 
-const Loader = () => <div className="loader">Загрузка...</div>;
+const Loader = () => <div className="loader">Loading...</div>;
 
 const StatsContainer:React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,8 +21,8 @@ const StatsContainer:React.FC = () => {
     setIsOpen(true);
   }, []);
 
-  const handleClickDelete = useCallback((index, id) => {
-    setData(updateDataTable(data, index, id));
+  const handleClickDelete = useCallback((index) => {
+    setData(updateDataTable(data, index));
   }, [data]);
 
   const columns = useMemo(
