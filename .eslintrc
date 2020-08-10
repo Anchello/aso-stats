@@ -1,0 +1,25 @@
+{
+  "globals": {
+    "document": false
+  },
+  "extends": [
+    "airbnb-typescript",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json",
+  },
+  "plugins": ["react", "jsx-a11y"],
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "packageDir": "./"
+      }
+    ]
+  }
+}

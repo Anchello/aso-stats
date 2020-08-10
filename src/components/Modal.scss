@@ -1,0 +1,87 @@
+.modal-wrapper {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(75, 111, 138, 0.5);
+  top: 0;
+  left: 0;
+  overflow: auto;
+}
+
+.modal {
+  color: #fff;
+  position: absolute;
+  background-color: #202e66;
+  font-size: 20px;
+  padding: 30px;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  @media screen and (min-width: 600px)  {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 600px;
+    width: auto;
+    border-radius: 10px;
+  }
+
+  &__header {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__content {
+    width: 100%;
+    text-align: center;
+    min-height: 200px;
+  }
+
+  &__close {
+    transition: transform 0.5s;
+    cursor: pointer;
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    right: 10px;
+    top: 10px;
+    transform: rotateZ(45deg);
+    background-color: transparent;
+    border: none;
+    will-change: transform;
+
+    @media screen and (min-width: 600px)  {
+      right: -20px;
+      top: -20px;
+    }
+
+    &:hover {
+      transform: rotateZ(225deg);
+    }
+  }
+
+  &__close-line {
+    display: block;
+    background-color: #fff;
+    position: absolute;
+    transform-origin: center;
+
+    &:first-child {
+      height: 20px;
+      width: 2px;
+      left: 50%;
+      margin-left: -1px;
+      top: 0%;
+    }
+
+    &:last-child {
+      height: 2px;
+      width: 20px;
+      top: 50%;
+      margin-top: -1px;
+    }
+  }
+}
