@@ -1,4 +1,4 @@
-import React, { Suspense, lazy }  from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import { INDEX_PATH, STATS_PATH } from '../constants';
 

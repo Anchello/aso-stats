@@ -30,26 +30,24 @@ export interface IData {
   id: number;
 }
 
-const adaptedDataStats = (data: Array<any>): any => {
-  return data.map((item: any) => {
-    const {
-      // eslint-disable-next-line @typescript-eslint/naming-convention
-      keyword, suggestions_count, users_per_day, position_info, total_apps, color, id,
-    } = item;
-    const { position, change } = position_info;
-    const rank = change !== null ? `${position} (${change})` : position;
-    return {
-      keyword,
-      explore: keyword,
-      suggestions: suggestions_count,
-      trafficScore: users_per_day,
-      rank,
-      totalApps: total_apps,
-      color,
-      id,
-    };
-  });
-};
+const adaptedDataStats = (data: Array<any>): any => data.map((item: any) => {
+  const {
+    // eslint-disable-next-line @typescript-eslint/naming-convention
+    keyword, suggestions_count, users_per_day, position_info, total_apps, color, id,
+  } = item;
+  const { position, change } = position_info;
+  const rank = change !== null ? `${position} (${change})` : position;
+  return {
+    keyword,
+    explore: keyword,
+    suggestions: suggestions_count,
+    trafficScore: users_per_day,
+    rank,
+    totalApps: total_apps,
+    color,
+    id,
+  };
+});
 
 export const getStats = () => api<{data: Array<any>}>(`${PROXY_URL}${DATA_STATS_URL}`, settings)
   .then(({ data }) => adaptedDataStats(data));

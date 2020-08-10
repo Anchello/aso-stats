@@ -38,6 +38,7 @@ const generateColumns = (onClickDelete: any, onClickShow: any) => [
     accessor: 'suggestions',
     Cell: ({ cell: { value } }: CellProps<object>) => (
       <button
+        type="button"
         className="button"
         onClick={() => {
           onClickShow();
@@ -69,6 +70,7 @@ const generateColumns = (onClickDelete: any, onClickShow: any) => [
     accessor: 'id',
     Cell: ({ cell }: CellProps<object>) => (
       <button
+        type="button"
         className="button"
         onClick={() => {
           onClickDelete(cell.row.index, cell.value);
